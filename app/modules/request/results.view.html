@@ -1,0 +1,17 @@
+<div ng-if="showFilm">
+	<div class="col-md-3">
+		<img class="img-responsive" src="{{result.poster}}" alt="">
+	</div>
+	<div class="col-md-9">
+		<h1>{{result.show_title}}</h1>
+		<h4>{{result.category}}</h4>
+		<p>Year: {{result.release_year}}</p>
+		<p>Category: {{result.category}}</p>
+		<p>Netflix Rating: {{result.rating}}</p>
+		<p>Director: {{result.director}}</p>
+		<p>Summary: {{result.summary}}</p>
+		<p>Show Cast: {{result.show_cast}}</p>
+
+		<a href="http://www.netflix.com/WiPlayer?movieid={{result.show_id}}" class="btn btn-primary">Assistir</a>
+	</div>
+</div>

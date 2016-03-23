@@ -1,5 +1,4 @@
-angular.module('requestModule', [])  
-.controller('requestController', ['$scope', '$http',
-  function($scope, $http){
-  }
-]);
+(function () {
+angular.module('requestModule', []);  
+
+})();

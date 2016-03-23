@@ -3,18 +3,88 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Netflix API</title>
-	<link rel="stylesheet" href="app/libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="app/dist/css/styles.min.css">
 </head>
 <body>
-	<div class="container">
+	<div data-ng-controller='GithubController as vm' ng-init="$scope.steps">
 		<header>
-			<div class="row">
-				
-			</div>
+			<div class="jumbotron">
+				<img src="app/img/logo.png" alt="">
+			</div>		
 		</header>
+		<section id="search">
+			<div class="container">
+				<div class="row contentMap">
+
+					<form class="form-inline" name="searchForm">
+						<div class="row">
+							<div class="c-inputs-stacked">
+							  <label class="c-input c-radio"> 
+							    <input id="radioStacked1" name="radio-stacked" type="radio" ng-value="0" ng-model="search.typeOf" >
+							    Show Movies
+							  </label>
+							  <label class="c-input c-radio">
+							    <input id="radioStacked2" name="radio-stacked" type="radio" ng-value="1" ng-model="search.typeOf" >
+							    Show TV Series
+							  </label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group">
+								<label for="">Actor</label>
+								<input type="text" placeholder="Actor's name" class="form-control" id="name_actor" ng-model="search.actor" >
+								
+							</div>
+							<div class="form-group">
+								<label for="">Director</label>
+								<input type="text" placeholder="Director's name" class="form-control" id="name_director" ng-model="search.director">
+							</div>
+							<div class="form-group">
+						    <label for="exampleInputEmail1">Min Rating</label>
+						    <select class="c-select" ng-model="search.minRatings">
+						    	<option value="1" selected="true">1</option>
+						    	<option value="2">2</option>
+						    	<option value="3">3</option>
+						    	<option value="4">4</option>
+						    	<option value="5">5</option>	    	
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">Max Rating</label>
+
+						    <select class="c-select" ng-model="search.maxRatings">
+						    	<option value="1" ng-selected="selected">1</option>
+						    	<option value="2">2</option>
+						    	<option value="3">3</option>
+						    	<option value="4">4</option>
+						    	<option value="5" selected>5</option>	    	
+						    </select>
+						  </div>
+						  <button class="btn btn-primary" ng-click="sendMessage(search)" ng-disabled="!searchForm.$valid">Pesquisar</button>
+					  </div>
+				  </form>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<div class="row">
+					<div ng-if="loading" class="loading">
+						<div class="bubblingG">
+							<span id="bubblingG_1"></span>
+							<span id="bubblingG_2"></span>
+							<span id="bubblingG_3"></span>
+						</div>
+					</div>
+					
+					<show-results></show-results>
+					<ui-alert></ui-alert>
+					
+				</div>
+			</div>
+		</section>
 	</div>
-	<script src="app/libs/angular/angular.js"></script>
-	<script src="app/js/main.js"></script>
-	<script src="app/modules/request/request.module.js"></script>
+	<script src="app/dist/js/all.min.js"></script>
+
 </body>
 </html>
